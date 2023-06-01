@@ -23,15 +23,15 @@ SRC /
             Archivos:
         - Modelo -> Country.js
         solictud de MODELO:  "country"
-        +ID (Código de tres letras). * -> Propiedad API : "cca3" (string)
-        +Nombre. * -> Propiedad API : "name" -> Es un Objeto {} -> Dentro usaremos "common"
-        +Imagen de la bandera. *: -> Propiedad API : "flaps" {} "png" "alt"
-        +Continente. *-> Propiedad API : "continents" [] 
-        +Capital. *-> Propiedad API : "capital" []
-        +Subregión.-> Propiedad API : "subregion" (solo string)
-        +Área.-> Propiedad API : "area" (es un NUMBER)
-        +Población. *-> Propiedad API : "population" (es un NUMBER)
-        +Timestamps : false
+            +ID (Código de tres letras). * -> Propiedad API : "cca3" (string)
+            +Nombre. * -> Propiedad API : "name" -> Es un Objeto {} -> Dentro usaremos "common"
+            +Imagen de la bandera. *: -> Propiedad API : "flaps" {} "png" "alt"
+            +Continente. *-> Propiedad API : "continents" [] 
+            +Capital. *-> Propiedad API : "capital" []
+            +Subregión.-> Propiedad API : "subregion" (solo string)
+            +Área.-> Propiedad API : "area" (es un NUMBER)
+            +Población. *-> Propiedad API : "population" (es un NUMBER)
+            +Timestamps : false
 
         - Modelo -> Activity.js 
         solictud de MODELO:  "activity"
