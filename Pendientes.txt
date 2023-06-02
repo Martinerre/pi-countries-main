@@ -23,7 +23,7 @@ SRC /
             Archivos:
         - Modelo -> Country.js
         solictud de MODELO:  "country"
-            +ID (Código de tres letras). * -> Propiedad API : "cca3" (string)
+            +ID (Código de tres letras). * -> Propiedad API : "alpha3Code" (string)
             +Nombre. * -> Propiedad API : "name" -> Es un Objeto {} -> Dentro usaremos "common"
             +Imagen de la bandera. *: -> Propiedad API : "flaps" {} "png" "alt"
             +Continente. *-> Propiedad API : "continents" [] 
