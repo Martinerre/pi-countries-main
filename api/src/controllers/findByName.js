@@ -1,9 +1,9 @@
 const { Country, Activity } = require('../db');
 
-const findByName = async (name)=>{
-    console.log(name);
+const findByName = async (name) => {
+    console.log('controler OK');
     let resultado = await Country.findByPk(name);
-    console.log(name);
+    console.log(resultado); //null
     return resultado
 };
 
