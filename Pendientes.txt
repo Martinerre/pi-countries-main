@@ -60,3 +60,5 @@ SRC /
             Activity.belongToMany (Country, {true: Coun_Act})
 
         
+        este es el endpoint final 
+https://restcountries.com/v2/all?fields=name,flags,region,capital,subregion,area,population 

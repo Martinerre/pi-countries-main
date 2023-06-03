@@ -24,8 +24,9 @@ router.get('/countries', async (req, res) => {
 router.get('/countries/:name', async (req, res) => {
     let { name } = req.params;
     console.log('ruta OK');
+    console.log(req.params);
     try {
-        let nombrePais = await findByName( name );
+        let nombrePais = await findByName(name);
         res.status(200).json(nombrePais)
     } catch (error) {
         res.status(400).json({ error: error.message })
@@ -35,8 +36,8 @@ router.get('/countries/:name', async (req, res) => {
 router.post('/activities', async (req, res) => {
     console.log('ruta OK');
     try {
-        let {name,difficulty,season} = req.body;
-        let newActividad = await createActivity(name, difficulty, season);
+        let { name, difficulty, duration, season } = req.body;
+        let newActividad = await createActivity(name, difficulty, duration, season);
         res.status(200).json(newActividad)
     } catch (error) {
         res.status(400).json({ error: error.message })
