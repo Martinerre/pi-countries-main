@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
     flag: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'sin datos de bandera'
+      defaultValue: 's/d'
     },
     continent: {
       type: DataTypes.STRING,
@@ -27,13 +27,13 @@ module.exports = (sequelize) => {
     capital: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'sin datos de continente'
+      defaultValue: 's/d'
     },
     area: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
     },
     population: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BIGINT,
       allowNull: false
     }
   }, { timestamps: false });

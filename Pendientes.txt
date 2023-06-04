@@ -62,3 +62,39 @@ SRC /
         
         este es el endpoint final 
 https://restcountries.com/v2/all?fields=name,flags,region,capital,subregion,area,population 
+
+https://rest-countries.up.railway.app/
+
+https://restcountries.com/v2/all 
+
+.then((countries) => {
+        countries.forEach(async (el) => {
+          await Country.create({
+            id: el.alpha3Code,
+            name: el.name,
+            flag: el.flag,
+            continent: el.region,
+            capital: el.capital,
+            subregion: el.subregion,
+            area: el.area,
+            population: el.population,
+          })
+        }
+
+function apiToDbb (valor) {
+   let response = await axios.get(URL);
+    let dbCountries = response.data;
+      .catch(e => console.log(e));
+  }
+}
+
+const pelis = async ()=>{
+    try {
+    let respuesta = await axios.get(URL);
+    } catch {
+
+    }
+
+}
+
+   
