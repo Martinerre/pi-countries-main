@@ -1,8 +1,9 @@
 const { Router } = require('express');
-const findAllCountries = require('../controllers/allCountries');
-const findByName = require('../controllers/findByName');
 const createActivity = require('../controllers/createActivity');
+const findAllCountries = require('../controllers/allCountries');
 const findAllActivities = require('../controllers/findAllActivity')
+const findByName = require('../controllers/findByName');
+const findById = require('../controllers/findById')
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -21,9 +22,22 @@ router.get('/countries', async (req, res) => {
     }
 });
 
-router.get('/countries/:name', async (req, res) => {
+router.get('/countries/:id', async (req, res) => {
+    let { id } = req.params;
+    console.log('ruta id OK');
+    console.log(req.params);
+    try {
+        let paisId = await findById(id);
+        res.status(200).json(paisId)
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+});
+
+router.get('/countries/name/:name', async (req, res) => {
     let { name } = req.params;
-    console.log('ruta OK');
+    name = name[0].toUpperCase() + name.slice(1).toLowerCase();
+    console.log('ruta name OK');
     console.log(req.params);
     try {
         let nombrePais = await findByName(name);

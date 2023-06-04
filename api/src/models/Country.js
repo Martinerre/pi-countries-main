@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    suborigin: {
+    subregion: {
       type: DataTypes.STRING,
     },
     capital: {
@@ -30,7 +30,8 @@ module.exports = (sequelize) => {
       defaultValue: 's/d'
     },
     area: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
+      defaultValue: 0
     },
     population: {
       type: DataTypes.BIGINT,

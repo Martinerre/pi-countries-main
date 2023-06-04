@@ -1,9 +1,9 @@
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const axios = require('axios');
-const {Country} = require('../api/src/db.js')
+const { Country } = require('../api/src/db.js')
 
-const URL = 'https://restcountries.com/v2/all';
+const URL = 'https://rest-countries.up.railway.app/v2/all';
 const port = 3001;
 
 const apiToDbb = async () => {
@@ -11,7 +11,6 @@ const apiToDbb = async () => {
   try {
     let response = await axios.get(URL);
     let dataResponse = response.data;
-    console.log('llega?');
     dataResponse.map(async (el) => {
       await Country.create({
         id: el.alpha3Code,
@@ -22,22 +21,22 @@ const apiToDbb = async () => {
         capital: el.capital,
         area: el.area,
         population: el.population,
-      })})
-    
+      })
+    })
   } catch (error) {
     error.message
   }
 
 }
 
-// Syncing all the models at once.
-conn.sync({ force: true })
+// Sincronizando todos los modelos a la vez
+conn.sync({ alter: true })
   .then(() => {
     //llamada a funcion que crea la DB- fc que trae los datos de la api
     server.listen(port, () => {
       console.log(`Server listening at ${port}`); // eslint-disable-line no-console
     });
-    apiToDbb(URL)
   });
+// apiToDbb(URL)
 
 

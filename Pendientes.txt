@@ -60,41 +60,53 @@ SRC /
             Activity.belongToMany (Country, {true: Coun_Act})
 
         
-        este es el endpoint final 
+        este es el endpoint final Nico
 https://restcountries.com/v2/all?fields=name,flags,region,capital,subregion,area,population 
 
-https://rest-countries.up.railway.app/
+https://rest-countries.up.railway.app/ API nueva publicada por Chris
 
-https://restcountries.com/v2/all 
+https://rest-countries.up.railway.app/v2/all endpoint publicado por Chris
 
-.then((countries) => {
-        countries.forEach(async (el) => {
-          await Country.create({
-            id: el.alpha3Code,
-            name: el.name,
-            flag: el.flag,
-            continent: el.region,
-            capital: el.capital,
-            subregion: el.subregion,
-            area: el.area,
-            population: el.population,
-          })
-        }
+Problemas con VIR
+area: {
+      type: DataTypes.BIGINT,}
 
-function apiToDbb (valor) {
-   let response = await axios.get(URL);
-    let dbCountries = response.data;
-      .catch(e => console.log(e));
-  }
-}
+original: error: la sintaxis de entrada no es válida para tipo bigint: «346.36»
 
-const pelis = async ()=>{
-    try {
-    let respuesta = await axios.get(URL);
-    } catch {
+ area: {
+      type: DataTypes.INTEGER,
+    },
 
-    }
+ original: error: la sintaxis de entrada no es válida para tipo integer: «346.36»
 
-}
+area: {
+      type: DataTypes.FLOAT,
+    },
 
-   
+nodemon no muestra nada
+ERORR EN SHELL -> ERROR:  carácter con secuencia de bytes 0xc4 0x93 en codificación «UTF8» no tiene equivalente en la codificación «WIN1252»  
+
+    area: {
+      type: DataTypes.REAL,
+    },
+
+nodemon no muestra nada
+
+Comando para ver en shell
+SHOW client_encoding; //WIN1252
+
+SOLUCION en shell tipear:
+\encoding UTF8
+**************************************************
+
+//Altera la tabla pero no genera declaraciones de eliminación
+//sequelize.sync({ alter: { drop: false } });
+
+//Normal alterar el comportamiento como se esperaba
+//sequelize.sync({ alter: true });
+
+//Mismo comportamiento que { alter: true } (por razones de seguridad)
+//sequelize.sync({ alter: {} });
+
+//Comortamiento normal esperado
+//sequelize.sync();
