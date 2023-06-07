@@ -13,7 +13,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.get('/countries', async (req, res) => {
-    console.log('ruta OK');
+    // console.log('ruta all OK');
     try {
         const paises = await findAllCountries();
         res.status(200).json(paises)
@@ -22,23 +22,11 @@ router.get('/countries', async (req, res) => {
     }
 });
 
-router.get('/countries/:id', async (req, res) => {
-    let { id } = req.params;
-    console.log('ruta id OK');
-    console.log(req.params);
-    try {
-        let paisId = await findById(id);
-        res.status(200).json(paisId)
-    } catch (error) {
-        res.status(400).json({ error: error.message })
-    }
-});
-
-router.get('/countries/name/:name', async (req, res) => {
-    let { name } = req.params;
+router.get('/countries/name', async (req, res) => {
+    let { name } = req.query;
     name = name[0].toUpperCase() + name.slice(1).toLowerCase();
-    console.log('ruta name OK');
-    console.log(req.params);
+    // console.log('ruta name OK');
+    // console.log(req.query);
     try {
         let nombrePais = await findByName(name);
         res.status(200).json(nombrePais)
@@ -47,8 +35,21 @@ router.get('/countries/name/:name', async (req, res) => {
     }
 });
 
+router.get('/countries/:id', async (req, res) => {
+    let { id } = req.params;
+    // console.log('ruta id OK');
+    // console.log(id);
+    try {
+        let paisId = await findById(id.toUpperCase());
+        res.status(200).json(paisId)
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+});
+
+
 router.post('/activities', async (req, res) => {
-    console.log('ruta OK');
+    console.log('ruta activiteis OK');
     try {
         let { name, difficulty, duration, season } = req.body;
         let newActividad = await createActivity(name, difficulty, duration, season);
