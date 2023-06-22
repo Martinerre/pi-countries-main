@@ -1,9 +1,9 @@
 import React from 'react';
-import Card from '../Card/card';
+// import Card from '../Detail/detail';
 // import styles from './Cards.module.css'
 
 export default function Cards(props) {
-    const { id, name, flag, continent } = props;
+    const { name, flag, continent } = props;
     let i = 0;
     return (
         <div >
@@ -13,4 +13,4 @@ export default function Cards(props) {
                 <h4>{continent}</h4>
             </div>
         </div>)
-}
+};

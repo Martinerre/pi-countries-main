@@ -11,7 +11,7 @@ export default function SearchBar(props) {
    return (
       <div>
          <input type="search" onChange={handleSearch} />
-         <button onClick={() => props.onSearch(countries)}> Buscar </button>
+         <button onClick={() => props.onSearch(country)}> Buscar </button>
       </div>
    )
 }

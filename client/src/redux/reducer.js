@@ -14,7 +14,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
             }
         case FIND_BY_ID:
             return {
-
+                
             }
         case FIND_BY_NAME:
             return {

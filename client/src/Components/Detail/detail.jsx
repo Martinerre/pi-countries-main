@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-export function Cards(props) {
+
+export function Detail(props) {
+    const location = useLocation();
     return (
         <div >
             <div >
