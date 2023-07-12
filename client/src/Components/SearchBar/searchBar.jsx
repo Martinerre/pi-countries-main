@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function SearchBar(props) {
-   const [country, setCountry] = useState(0);
+   const [country, setCountry] = useState([]);
 
    const handleSearch = (event) => {
       let { value } = event.target;
@@ -10,7 +10,10 @@ export default function SearchBar(props) {
 
    return (
       <div>
-         <input type="search" onChange={handleSearch} />
+         <input
+            type="search"
+            onChange={handleSearch}
+         />
          <button onClick={() => props.onSearch(country)}> Buscar </button>
       </div>
    )

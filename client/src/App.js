@@ -10,14 +10,22 @@ function App() {
 
   async function onSearch(country) {
     console.log(country);
-    const response = await fetch(`http://localhost:3001/countries/name?name=${country}`)
-    const jsonData = await response.json();
-    setCountry((country) => [...countries, country])
-    console.log(jsonData);
+    fetch(`http://localhost:3001/countries/name?name=${country}`)
+
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data) {
+          setCountry([...data]);
+        } else {
+          alert('No hay personajes con ese ID');
+        }
+      });
 
     // .then((response) => response.json())
     // .then((country) => { setCountry((country) => [...country, country]) })
   };
+
 
   // function onClose(id) {
   //   setCountry(countries.filter((element) => element.id !== id));
@@ -25,7 +33,7 @@ function App() {
   return (
     <div style={{ padding: '25px' }}>
       <SearchBar onSearch={onSearch} />
-      <Cards jsonData={jsonData} />
+      <Cards datos={country} />
     </div>
   )
 }
