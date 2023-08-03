@@ -12,7 +12,6 @@ export function Detail(props) {
                         ? <button onClick={props.onClose}>X</button>
                         : null
                 }
-
                 <Link to={`/detail/${props.id}`}>
                     <h5 >{props.name}</h5>
                 </Link>

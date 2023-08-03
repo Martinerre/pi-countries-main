@@ -15,7 +15,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        if (data) {
+        if (data.name) {
           setCountry([...data]);
         } else {
           alert('No hay personajes con ese ID');
